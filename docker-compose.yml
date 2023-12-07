@@ -1,15 +1,55 @@
-version: '3'
-
+version: '1.2'
 services:
-  postgres:
-    image: postgres:latest
-    container_name: postgres_db
+  database:
+    container_name: database
+    image: mysql:8.0
+    restart: always
     environment:
-      POSTGRES_DB: your_database_name
-      POSTGRES_USER: your_username
-      POSTGRES_PASSWORD: your_password
+      MYSQL_DATABASE: contacts
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3307:3306"
     volumes:
-      - finapp-data:/var/lib/postgresql/data
+      - ./data:/var/lib/mysql
+      - ./conf:/etc/mysql/conf.d
+      - ./logs:/logs
+
+  phpmyadmin:
+    container_name: phpmyadmin
+    depends_on:
+      - database
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: database
+    ports:
+      - 8080:80
+
+  backend:
+    container_name: backend
+    build: 
+      context: ./api
+    depends_on:
+      - database
+    environment:
+      MYSQL_HOST_IP: finapp-db
+      MYSQL_USER: root
+      MYSQL_DATABASE: contacts
+      MYSQL_PASSWORD: root
+    ports:
+      - 5000:5000
+    volumes:
+      - ./api:/api
+
+  frontend:
+    container_name: frontend
+    build: 
+      context: ./web
+    ports:
+      - 3000:80
+    volumes:
+      - ./web:/web
 
 volumes:
-  finapp-data:
+  database:
+    driver: local
