@@ -1,6 +1,6 @@
 import { createLogger, transports, format } from 'winston';
 
-export const getLogger = () => {
+const getLogger = () => {
     return createLogger({
         format: format.combine(
             format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
@@ -12,3 +12,5 @@ export const getLogger = () => {
         ]
     });
 };
+
+export default getLogger;
