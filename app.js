@@ -1,19 +1,18 @@
 import getLogger from './config/logger.js';
 import readCSV from './utils/csvParser.js';
-import 'dotenv/config';
+import constants from "./config/constants.js";
 import store from './states/store.js';
 import { addTransactions } from './states/transactionsSlice.js';
-
-const TRANSACTIONS = "TRANSACTIONS";
+import mainMenu from "./menus/main.js";
+import 'dotenv/config';
 
 (async () => {
   try {
     const logger = getLogger();
-    let transactions = await readCSV(TRANSACTIONS, logger);
-    console.log(transactions[0]);
+    let transactions = await readCSV(constants.transactions, logger);
 
     store.dispatch(addTransactions(transactions));
-
+    mainMenu();
   } catch (error) {
     console.error('Error in main script:', error);
   }
