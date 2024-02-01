@@ -2,9 +2,9 @@ import fs from 'fs';
 import csv from 'csv-parser';
 import path from 'path';
 
-const csvParser = async (logger) => {
-    const fileName = process.env.CSV_FILE;
-    const fileFolder = process.env.CSV_FOLDER;
+const csvParser = async (type, logger) => {
+    const fileName = process.env[`${type}_FILE`];
+    const fileFolder = process.env[`${type}_FOLDER`];
     const filePath = path.join(fileFolder, fileName);
 
     return new Promise((resolve, reject) => {
