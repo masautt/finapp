@@ -1,25 +1,25 @@
 import enquirer from 'enquirer';
-import validateMenu from "./validate.js";
 
-const mainMenu = await enquirer.prompt({
-  type: 'select',
-  name: 'action',
-  message: 'Welcome to Cash Commander. What would you like to do?',
-  choices: [
-    { name: "validate" },
-    { name: "exit" },
-  ],
-});
+const mainMenu = async () => {
+  const response = await enquirer.prompt({
+    type: 'select',
+    name: 'action',
+    message: 'Welcome to Cash Commander. What would you like to do?',
+    choices: [
+      { name: "query" },
+      { name: "exit" },
+    ],
+  });
 
-switch (mainMenu.action) {
-  case 'validate':
-    break;
-
-  case 'exit':
-    process.exit();
-  default:
-    console.log('Invalid option. Please choose a valid action.');
-    break;
-}
+  switch (response.action) {
+    case 'query':
+      return 'query';
+    case 'exit':
+      process.exit();
+    default:
+      console.log('Invalid option. Please choose a valid action.');
+      return 'invalid';
+  }
+};
 
 export default mainMenu;
