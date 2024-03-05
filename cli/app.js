@@ -1,23 +1,44 @@
-import getLogger from './config/logger.js';
-import readCSV from './utils/csvParser.js';
-import constants from "./config/constants.js";
-import store from './states/store.js';
-import { addTransactions, fetchTransactions } from './states/transactionsSlice.js';
-import 'dotenv/config';
+import React, { useEffect } from 'react';
+import { View, Text } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+import { addTransactions, fetchTransactions } from './states/transactionsSlice';
+import { readCSVFromDevice } from './utils/csvParser'; // Implement this function using react-native-fs or similar
 
-(async () => {
-  try {
-    const logger = getLogger();
-    let transactions = await readCSV(constants.transactions, logger);
-    store.dispatch(addTransactions(transactions));
+const App = () => {
+  const dispatch = useDispatch();
+  const filteredTransactions = useSelector(state => state.transactions.filteredData);
 
-    const filters = { category: "Life", subCategory: "Haircut"}
-    
-    store.dispatch(fetchTransactions(filters));
-    const filteredTransactions = store.getState().transactions.filteredData;
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Read CSV file from device
+        const transactions = await readCSVFromDevice('path_to_your_csv_file.csv');
 
-    console.log(filteredTransactions);
-  } catch (error) {
-    console.error('Error in main script:', error);
-  }
-})();
+        // Dispatch action to add transactions to store
+        dispatch(addTransactions(transactions));
+
+        // Fetch transactions based on filters
+        const filters = { category: "Life", subCategory: "Haircut" };
+        dispatch(fetchTransactions(filters));
+      } catch (error) {
+        console.error('Error loading CSV:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  return (
+    <View>
+      <Text>Filtered Transactions:</Text>
+      <View>
+        {/* Render filtered transactions here */}
+        {filteredTransactions.map(transaction => (
+          <Text key={transaction.id}>{/* Render transaction details */}</Text>
+        ))}
+      </View>
+    </View>
+  );
+};
+
+export default App;
