@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5VXdsPugl1Sn4smLZBQQ1L9IA4dujNFz6l2DmJX3Pwk13lRMDtjTbVG7C9fUdAxK4g/0RnBhxO2wdPkLvwXRfQ==",
+  "dgSpecHash": "XA9Hf76EqmiEgTvGltRbx0vklJyiUroBBS3lWSTmpBtA+oQ+WqCCjiQI8qpMRqaxSexSzlEzCcTaNdkNHXsEbw==",
   "success": true,
-  "projectFilePath": "\\\\wsl.localhost\\Ubuntu\\home\\masautt\\documents\\projects\\finapp\\api\\api.csproj",
+  "projectFilePath": "C:\\Users\\marek\\OneDrive\\Desktop\\finapp\\api\\api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\marek\\.nuget\\packages\\microsoft.aspnetcore.authentication.negotiate\\8.0.0\\microsoft.aspnetcore.authentication.negotiate.8.0.0.nupkg.sha512",
     "C:\\Users\\marek\\.nuget\\packages\\microsoft.aspnetcore.connections.abstractions\\8.0.0\\microsoft.aspnetcore.connections.abstractions.8.0.0.nupkg.sha512",

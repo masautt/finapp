@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "\\\\wsl.localhost\\Ubuntu\\home\\masautt\\documents\\projects\\finapp\\api\\api.csproj": {}
+    "C:\\Users\\marek\\OneDrive\\Desktop\\finapp\\api\\api.csproj": {}
   },
   "projects": {
-    "\\\\wsl.localhost\\Ubuntu\\home\\masautt\\documents\\projects\\finapp\\api\\api.csproj": {
+    "C:\\Users\\marek\\OneDrive\\Desktop\\finapp\\api\\api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "\\\\wsl.localhost\\Ubuntu\\home\\masautt\\documents\\projects\\finapp\\api\\api.csproj",
+        "projectUniqueName": "C:\\Users\\marek\\OneDrive\\Desktop\\finapp\\api\\api.csproj",
         "projectName": "api",
-        "projectPath": "\\\\wsl.localhost\\Ubuntu\\home\\masautt\\documents\\projects\\finapp\\api\\api.csproj",
+        "projectPath": "C:\\Users\\marek\\OneDrive\\Desktop\\finapp\\api\\api.csproj",
         "packagesPath": "C:\\Users\\marek\\.nuget\\packages\\",
-        "outputPath": "\\\\wsl.localhost\\Ubuntu\\home\\masautt\\documents\\projects\\finapp\\api\\obj\\",
+        "outputPath": "C:\\Users\\marek\\OneDrive\\Desktop\\finapp\\api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\marek\\AppData\\Roaming\\NuGet\\NuGet.Config",
