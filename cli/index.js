@@ -1,10 +1,10 @@
-import getLogger from './config/logger.js';
-import readCSV from './utils/csvHelper.js';
-import constants from "./config/constants.js";
-import store from './states/store.js';
-import { filterPrompt } from './prompts/filterPrompts.js';
-import { addTransactions, fetchTransactions } from './states/transactionsSlice.js';
-import 'dotenv/config';
+const getLogger = require('./config/logger.js');
+const readCSV = require('./utils/csvHelper.js');
+const constants = require("./config/constants.js");
+const store = require('./states/store.js');
+const { filterPrompt } = require('./prompts/filterPrompts.js');
+const { addTransactions, fetchTransactions } = require('./states/transactionsSlice.js');
+require('dotenv').config();
 
 (async () => {
   try {

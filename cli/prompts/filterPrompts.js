@@ -1,7 +1,6 @@
-import { getDateString } from '../utils/dateHelper.js';
-import Enquirer from 'enquirer';
+const { getDateString } = require('../utils/dateHelper.js');
+const Enquirer = require('enquirer');
 const { Form } = Enquirer;
-
 
 
 const defaults = {
@@ -13,7 +12,7 @@ const defaults = {
   endDate: getDateString(new Date())
 };
 
-export const filterPrompt = new Form({
+const filterPrompt = new Form({
   type: 'form',
   name: 'filterPrompt',
   message: 'Enter the missing values:',
@@ -26,5 +25,7 @@ export const filterPrompt = new Form({
     { name: 'endDate', initial: defaults.endDate}
   ]
 });
+
+module.exports = { filterPrompt };
 
 

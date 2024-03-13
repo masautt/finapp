@@ -1,10 +1,10 @@
-import { createSlice } from '@reduxjs/toolkit';
-import constants from "../config/constants.js";
-import { isDateInRange } from '../utils/dateHelper.js';
+const { createSlice } = require('@reduxjs/toolkit');
+const constants = require("../config/constants.js");
+const { isDateInRange } = require('../utils/dateHelper.js');
 
 const transactionsSlice = createSlice({
   name: 'transactions',
-  initialState: { data: [] },
+  initialState: { data: [], filteredData: [] },
   reducers: {
     addTransaction: (state, action) => {
       state.data.push(action.payload);
@@ -25,19 +25,19 @@ const transactionsSlice = createSlice({
       filteredTransactions = filteredTransactions.filter(transaction => {
         const date = new Date(transaction.date);
         return isDateInRange(date, filters.startDate, filters.endDate);
-    });
-    
-    
+      });
 
-      const filteredState = {
-        data: state.data,
-        filteredData: filteredTransactions
-      };
-
-      return filteredState;
+      state.filteredData = filteredTransactions;
     }
   },
 });
 
-export const { addTransaction, addTransactions, fetchTransactions } = transactionsSlice.actions;
-export default transactionsSlice.reducer;
+const { addTransaction, addTransactions, fetchTransactions } = transactionsSlice.actions;
+const transactionsReducer = transactionsSlice.reducer;
+
+module.exports = {
+    addTransaction,
+    addTransactions,
+    fetchTransactions,
+    transactionsReducer
+};

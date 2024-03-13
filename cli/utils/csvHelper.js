@@ -1,6 +1,6 @@
-import fs from 'fs';
-import csv from 'csv-parser';
-import path from 'path';
+const fs = require('fs');
+const csv = require('csv-parser');
+const path = require('path');
 
 const parseValue = (value) => {
   // Check if the value is a number, but not NaN
@@ -52,4 +52,4 @@ const csvParser = async (type, logger) => {
   });
 };
 
-export default csvParser;
+module.exports = csvParser;
