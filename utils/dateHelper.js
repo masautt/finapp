@@ -5,6 +5,11 @@ export const getDateString = (date) => {
     return `${month}/${day}/${year}`;
 };
 
+export const parseDate = (dateString) => {
+    const [month, day, year] = dateString.split('/');
+    return new Date(`20${year}`, month - 1, day); 
+};
+
 export const isDateInRange = (date, startDate, endDate) => {
-    return date >= startDate && date <= endDate;
+    return date >= parseDate(startDate) && date <= parseDate(endDate);
 };
