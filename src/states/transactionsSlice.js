@@ -1,37 +1,36 @@
-// transactionsSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 import { headers } from "../config/constants";
 import { isDateInRange } from '../utils/dateHelper';
 
 const transactionsSlice = createSlice({
   name: 'transactions',
-  initialState: { data: [], filteredData: [] },
+  initialState: { all: [], filtered: [] },
   reducers: {
-    addTransaction: (state, action) => {
-      state.data.push(action.payload);
-    },
     addTransactions: (state, action) => {
-      state.data = state.data.concat(action.payload);
+      state.all = state.all.concat(action.payload);
     },
-    fetchTransactions: (state, action) => {
+    filterTransactions: (state, action) => {
       let filters = action.payload;
-      let filteredTransactions = state.data;
+      let filtered = state.all;
 
       headers.forEach(attribute => {
         if (filters[attribute]) {
-          filteredTransactions = filteredTransactions.filter(x => x[attribute] === filters[attribute]);
+          filtered = filtered.filter(x => x[attribute] === filters[attribute]);
         }
       });
 
-      filteredTransactions = filteredTransactions.filter(transaction => {
+      filtered = filtered.filter(transaction => {
         const date = new Date(transaction.date);
         return isDateInRange(date, filters.startDate, filters.endDate);
       });
 
-      state.filteredData = filteredTransactions;
+      state.filtered = filtered;
     }
   },
 });
 
-export const { addTransaction, addTransactions, fetchTransactions } = transactionsSlice.actions;
+export const { addTransactions, filterTransactions } = transactionsSlice.actions;
 export const transactionsReducer = transactionsSlice.reducer;
+
+export const selectTransactions = state => state.transactions.all;
+export const selectFilteredTransactions = state => state.filtered;

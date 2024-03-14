@@ -1,9 +1,21 @@
-import React from 'react'
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { selectTransactions } from '../states/transactionsSlice';
 
 const Content2 = () => {
-  return (
-    <div>Content2</div>
-  )
-}
+  const transactions = useSelector(selectTransactions);
 
-export default Content2
+  return (
+    <div style={{height : '95%', width : '95%', overflowY: 'auto' }}>
+      <ul style={{ listStyleType: 'none', padding: 0 }}>
+        {transactions.map(transaction => (
+          <li key={transaction.id}>
+            {transaction.category} - {transaction.subcategory} - {transaction.amount} - {transaction.business} - {transaction.city} - {transaction.state} - {transaction.description} - {transaction.comments}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default Content2;
