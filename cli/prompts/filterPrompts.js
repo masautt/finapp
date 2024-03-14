@@ -1,11 +1,11 @@
-const { getDateString } = require('../utils/dateHelper.js');
+const { getDateString } = require('../../src/shared/utils/dateHelper.js');
 const Enquirer = require('enquirer');
 const { Form } = Enquirer;
 
 
 const defaults = {
   category: "Life",
-  subCategory: "Clothing",
+  subcategory: "Clothing",
   recipient: "Marek",
   necessity: "Need",
   startDate: "01/01/22",
@@ -18,7 +18,7 @@ const filterPrompt = new Form({
   message: 'Enter the missing values:',
   choices: [
     { name: 'category', initial: defaults.category },
-    { name: 'subCategory', initial: defaults.subCategory },
+    { name: 'subcategory', initial: defaults.subcategory },
     { name: 'recipient', initial: defaults.recipient },
     { name: 'necessity', initial: defaults.necessity },
     { name: 'startDate', initial: defaults.startDate},
