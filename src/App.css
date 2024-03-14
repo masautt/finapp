@@ -1,38 +1,95 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.centered {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.layout {
+  width: 100%;
+  height: 90%;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 2fr 5fr 2fr 2fr 2fr 2fr 1fr;
+  grid-template-areas: 'content1'
+    'content2'
+    'content3'
+    'content4'
+    'content5'
+    'content6'
+    'content7';
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.content1 {
+  grid-area: content1;
+  border: 2px solid black;
+  /* Apply border to all content areas */
+}
+
+.content2 {
+  grid-area: content2;
+  border: 2px solid black;
+  /* Apply border to all content areas */
+
+}
+
+.content3 {
+  grid-area: content3;
+  border: 2px solid black;
+  /* Apply border to all content areas */
+
+}
+
+.content4 {
+  grid-area: content4;
+  border: 2px solid black;
+  /* Apply border to all content areas */
+
+}
+
+.content5 {
+  grid-area: content5;
+  border: 2px solid black;
+  /* Apply border to all content areas */
+
+}
+
+.content6 {
+  grid-area: content6;
+  border: 2px solid black;
+  /* Apply border to all content areas */
+
+}
+
+.content7 {
+  grid-area: content7;
+  border: 2px solid black;
+  /* Apply border to all content areas */
+
+}
+
+.content8 {
+  grid-area: content8;
+  border: 2px solid black;
+  /* Apply border to all content areas */
+
+}
+
+@media only screen and (min-width: 768px) {
+  .layout {
+    width: 100%;
+    height: 95vh;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr 5fr 2fr 2fr 2fr 2fr 1fr;
+    grid-template-areas:
+      'content1 content1 content1 content1 content1'
+      'content8 content2 content2 content2 content2'
+      'content8 content2 content2 content2 content2'
+      'content8 content2 content2 content2 content2'
+      'content8 content3 content4 content5 content5'
+      'content8 content3 content4 content6 content6'
+      'content7 content7 content7 content7 content7';
   }
-  to {
-    transform: rotate(360deg);
-  }
+
 }
