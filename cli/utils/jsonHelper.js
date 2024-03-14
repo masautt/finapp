@@ -69,4 +69,8 @@ module.exports = async (transactions) => {
   const uniqueRecurring = [...new Set(transactions.map(transaction => transaction.recurring))];
   const recurringString = `${moduleExports}${JSON.stringify(uniqueRecurring, null, 2)};`;
   await writeFileAsync(`${dataDirectory}/recurringOptions.js`, recurringString);
+
+  const uniqueNecessities = [...new Set(transactions.map(transaction => transaction.necessity))];
+  const necessitiesString = `${moduleExports}${JSON.stringify(uniqueNecessities, null, 2)};`;
+  await writeFileAsync(`${dataDirectory}/necessityOptions.js`, necessitiesString);
 }

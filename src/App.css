@@ -80,16 +80,16 @@
     width: 100%;
     height: 95vh;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(10, 1fr);
     grid-template-rows: 1fr 5fr 2fr 2fr 2fr 2fr 1fr;
     grid-template-areas:
-      'titlebar titlebar titlebar titlebar titlebar'
-      'content8 content2 content2 content2 content2'
-      'content8 content2 content2 content2 content2'
-      'content8 content2 content2 content2 content2'
-      'content8 content3 content4 content5 content5'
-      'content8 content3 content4 content6 content6'
-      'content7 content7 content7 content7 content7';
+      'titlebar titlebar titlebar titlebar titlebar titlebar titlebar titlebar titlebar titlebar titlebar'
+      'content2 content2 content2 content2 content2 content2 content2 content2 content2 content2 content2'
+      'content2 content2 content2 content2 content2 content2 content2 content2 content2 content2 content2'
+      'content2 content2 content2 content2 content2 content2 content2 content2 content2 content2 content2'
+      'content3 content8 content4 content6 content6 content6 content6 content6 content6 content6 content6'
+      'content3 content8 content5 content6 content6 content6 content6 content6 content6 content6 content6'
+      'content7 content8 content5 content6 content6 content6 content6 content6 content6 content6 content6';
   }
 
 }
