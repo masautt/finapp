@@ -1,9 +1,9 @@
-const getLogger = require('./config/logger.js');
-const readCSV = require('./utils/csvHelper.js');
-const constants = require("./config/constants.js");
-const store = require('./states/store.js');
+const getLogger = require('../shared/config/logger.js');
+const readCSV = require('../shared/utils/csvHelper.js');
+const constants = require("../shared/config/constants.js");
+const store = require('../shared/states/store.js');
 const { filterPrompt } = require('./prompts/filterPrompts.js');
-const { addTransactions, fetchTransactions } = require('./states/transactionsSlice.js');
+const { addTransactions, fetchTransactions } = require('../shared/states/transactionsSlice.js');
 require('dotenv').config();
 
 (async () => {
@@ -15,12 +15,7 @@ require('dotenv').config();
     let filters = await filterPrompt.run();
 
     store.dispatch(fetchTransactions(filters));
-    let filteredTransactions = store.getState().transactions.filteredData;
-    let filteredTransactionsTotal = filteredTransactions.reduce((acc, cur) => {
-      return acc + cur.amount;
-    }, 0);
-    console.log(`Counted ${filteredTransactions.length} ${filters.category} transactions totalling ${filteredTransactionsTotal} dollars`);
-    
+    let filteredTransactions = store.getState().transactions.filteredData;    
   } catch (error) {
     console.error('Error in main script:', error);
   }

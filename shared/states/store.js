@@ -7,7 +7,8 @@ const store = configureStore({
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
-      serializableCheck: false, // Disable serializableCheck to avoid timeout warnings
+      // Disable serializableCheck to avoid timeout warnings
+      serializableCheck: false, 
     }),
 });
 
