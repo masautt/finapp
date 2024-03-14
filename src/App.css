@@ -11,12 +11,12 @@
   grid-template-columns: 100%;
   grid-template-rows: 2fr 5fr 2fr 2fr 2fr 2fr 1fr;
   grid-template-areas: 'titlebar'
-    'content2'
-    'content3'
-    'content4'
-    'content5'
-    'content6'
-    'content7';
+    'transactionsTable'
+    'categoryFilters'
+    'recipientFilters'
+    'necessityFilters'
+    'reimburseFilters'
+    'amountFitlers';
 
 }
 
@@ -26,50 +26,50 @@
   /* Apply border to all content areas */
 }
 
-.content2 {
-  grid-area: content2;
+.transactionsTable {
+  grid-area: transactionsTable;
   border: 2px solid black;
   /* Apply border to all content areas */
 
 }
 
-.content3 {
-  grid-area: content3;
+.categoryFilters {
+  grid-area: categoryFilters;
   border: 2px solid black;
   /* Apply border to all content areas */
 
 }
 
-.content4 {
-  grid-area: content4;
+.recipientFilters {
+  grid-area: recipientFilters;
   border: 2px solid black;
   /* Apply border to all content areas */
 
 }
 
-.content5 {
-  grid-area: content5;
+.necessityFilters {
+  grid-area: necessityFilters;
   border: 2px solid black;
   /* Apply border to all content areas */
 
 }
 
-.content6 {
-  grid-area: content6;
+.reimburseFilters {
+  grid-area: reimburseFilters;
   border: 2px solid black;
   /* Apply border to all content areas */
 
 }
 
-.content7 {
-  grid-area: content7;
+.amountFitlers {
+  grid-area: amountFitlers;
   border: 2px solid black;
   /* Apply border to all content areas */
 
 }
 
-.content8 {
-  grid-area: content8;
+.subcategoryFilters {
+  grid-area: subcategoryFilters;
   border: 2px solid black;
   /* Apply border to all content areas */
 
@@ -84,12 +84,12 @@
     grid-template-rows: 1fr 5fr 2fr 2fr 2fr 2fr 1fr;
     grid-template-areas:
       'titlebar titlebar titlebar titlebar titlebar titlebar titlebar titlebar titlebar titlebar titlebar'
-      'content2 content2 content2 content2 content2 content2 content2 content2 content2 content2 content2'
-      'content2 content2 content2 content2 content2 content2 content2 content2 content2 content2 content2'
-      'content2 content2 content2 content2 content2 content2 content2 content2 content2 content2 content2'
-      'content3 content8 content4 content6 content6 content6 content6 content6 content6 content6 content6'
-      'content3 content8 content5 content6 content6 content6 content6 content6 content6 content6 content6'
-      'content7 content8 content5 content6 content6 content6 content6 content6 content6 content6 content6';
+      'transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable'
+      'transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable'
+      'transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable'
+      'categoryFilters subcategoryFilters recipientFilters reimburseFilters reimburseFilters reimburseFilters reimburseFilters reimburseFilters reimburseFilters reimburseFilters reimburseFilters'
+      'categoryFilters subcategoryFilters necessityFilters reimburseFilters reimburseFilters reimburseFilters reimburseFilters reimburseFilters reimburseFilters reimburseFilters reimburseFilters'
+      'amountFitlers subcategoryFilters necessityFilters reimburseFilters reimburseFilters reimburseFilters reimburseFilters reimburseFilters reimburseFilters reimburseFilters reimburseFilters';
   }
 
 }

@@ -1,12 +1,12 @@
 import React from "react";
 import TitleBar from "./TitleBar";
-import Content2 from "./Content2";
-import Content3 from "./Content3";
-import Content4 from "./Content4";
-import Content5 from "./Content5";
-import Content6 from "./Content6";
-import Content7 from "./Content7";
-import Content8 from "./Content8";
+import TransactionsTable from "./TransactionsTable";
+import CategoryFilters from "./CategoryFilters";
+import RecipientFilters from "./RecipientFilters";
+import NecessityFilters from "./NecessityFilters";
+import Content6 from "./ReimburseFilters";
+import AmountFilters from "./AmountFilters";
+import SubcategoryFilters from "./SubcategoryFilters";
 
 const MainPage = () => {
   return (
@@ -16,28 +16,28 @@ const MainPage = () => {
           <div className="titlebar centered">
             <TitleBar />
           </div>
-          <div className="content2 centered">
-            <Content2 />
+          <div className="transactionsTable centered">
+            <TransactionsTable />
           </div>
-          <div className="content3 centered">
-            <Content3 />
+          <div className="categoryFilters centered">
+            <CategoryFilters />
           </div>
 
-          <div className="content4 centered">
-            <Content4 />
+          <div className="recipientFilters centered">
+            <RecipientFilters />
           </div>
-          <div className="content5 centered">
-            <Content5 />
+          <div className="necessityFilters centered">
+            <NecessityFilters />
           </div>
-          <div className="content6 centered">
+          <div className="reimburseFilters centered">
             <Content6 />
           </div>
 
-          <div className="content7 centered">
-            <Content7 />
+          <div className="amountFitlers centered">
+            <AmountFilters />
           </div>
-          <div className="content8 centered">
-            <Content8 />
+          <div className="subcategoryFilters centered">
+            <SubcategoryFilters />
           </div>
         </div>
       </section>
