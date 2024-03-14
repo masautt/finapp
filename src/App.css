@@ -10,7 +10,7 @@
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: 2fr 5fr 2fr 2fr 2fr 2fr 1fr;
-  grid-template-areas: 'content1'
+  grid-template-areas: 'titlebar'
     'content2'
     'content3'
     'content4'
@@ -20,8 +20,8 @@
 
 }
 
-.content1 {
-  grid-area: content1;
+.titlebar {
+  grid-area: titlebar;
   border: 2px solid black;
   /* Apply border to all content areas */
 }
@@ -83,7 +83,7 @@
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 1fr 5fr 2fr 2fr 2fr 2fr 1fr;
     grid-template-areas:
-      'content1 content1 content1 content1 content1'
+      'titlebar titlebar titlebar titlebar titlebar'
       'content8 content2 content2 content2 content2'
       'content8 content2 content2 content2 content2'
       'content8 content2 content2 content2 content2'

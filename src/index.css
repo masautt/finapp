@@ -3,6 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  font-family: 'Open Sans', sans-serif; /* Use Open Sans as the default font */
+}
+
 @layer components {
   .pagesLinks {
     @apply my-2 text-sm font-bold text-center px-2 tracking-wide border border-black;

@@ -1,5 +1,5 @@
 import React from "react";
-import Content1 from "./Content1";
+import TitleBar from "./TitleBar";
 import Content2 from "./Content2";
 import Content3 from "./Content3";
 import Content4 from "./Content4";
@@ -13,8 +13,8 @@ const MainPage = () => {
     <React.Fragment>
       <section>
         <div className="layout text-2xl text-white">
-          <div className="content1 centered">
-            <Content1 />
+          <div className="titlebar centered">
+            <TitleBar />
           </div>
           <div className="content2 centered">
             <Content2 />
