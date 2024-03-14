@@ -1,4 +1,4 @@
-const { getDateString } = require('../../src/shared/utils/dateHelper.js');
+const { getDateString } = require('../utils/dateHelper.js');
 const Enquirer = require('enquirer');
 const { Form } = Enquirer;
 
