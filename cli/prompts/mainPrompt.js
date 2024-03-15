@@ -1,6 +1,11 @@
 const { prompt } = require('enquirer');
 const store = require('../states/store');
+const chalk = require('chalk');
 
+const introMessage = `
+${chalk.green('Welcome to Budget Buddy v1.23!')} 
+${chalk.blue('How many I assist you today?')}
+`;
 const menuOptions = {
     LOAD_OPTION_1: '1: Load Transactions CSV to Data Store',
     FILTER_OPTION_2: '2: Filter Transactions',
@@ -34,4 +39,4 @@ const menuPrompt = async () => {
     return response.choice;
 };
 
-module.exports = { menuPrompt, menuOptions };
+module.exports = { menuPrompt, menuOptions, introMessage };

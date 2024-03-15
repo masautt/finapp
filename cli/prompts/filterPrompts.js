@@ -1,6 +1,5 @@
 const { getDateString } = require('../utils/dateHelper.js');
-const Enquirer = require('enquirer');
-const { Form } = Enquirer;
+const { prompt } = require('enquirer');
 
 
 const defaults = {
@@ -12,20 +11,23 @@ const defaults = {
   endDate: getDateString(new Date())
 };
 
-const filterPrompt = new Form({
-  type: 'form',
-  name: 'filterPrompt',
-  message: 'Enter the missing values:',
-  choices: [
-    { name: 'category', initial: defaults.category },
-    { name: 'subcategory', initial: defaults.subcategory },
-    { name: 'recipient', initial: defaults.recipient },
-    { name: 'necessity', initial: defaults.necessity },
-    { name: 'startDate', initial: defaults.startDate},
-    { name: 'endDate', initial: defaults.endDate}
-  ]
-});
+const filterPrompt = async () => {
+  const res = await prompt({
+    type: 'form',
+    name: 'filterPrompt',
+    message: 'Enter the missing values:',
+    choices: [
+      { name: 'category', initial: defaults.category },
+      { name: 'subcategory', initial: defaults.subcategory },
+      { name: 'recipient', initial: defaults.recipient },
+      { name: 'necessity', initial: defaults.necessity },
+      { name: 'startDate', initial: defaults.startDate },
+      { name: 'endDate', initial: defaults.endDate }
+    ]
+  });
+  return res.filterPrompt;
+}
 
-module.exports = filterPrompt;
+module.exports = { filterPrompt };
 
 

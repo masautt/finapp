@@ -1,20 +1,27 @@
-const { prompt } = require('enquirer');
-const { menuOptions, menuPrompt } = require('./prompts/mainPrompt.js');
+const { menuOptions, menuPrompt, introMessage } = require('./prompts/mainPrompt.js');
 const getLogger = require('./config/logger.js');
 const readCSV = require('./utils/csvHelper.js');
 const constants = require("./config/constants.js");
 const writeJSON = require('./utils/jsonHelper.js');
 
+
 const store = require('./states/store.js');
 const { filterPrompt } = require('./prompts/filterPrompts.js');
 const { addTransactions } = require('./states/transactionsSlice.js');
 const { markCsvLoaded } = require('./states/diagnosticsSlice.js');
+const { jsonPrompt } = require('./prompts/jsonPrompt.js');
+const { exportFilteredPrompt } = require('./prompts/exportPrompt.js');
+const { filterTransactions } = require('./states/transactionsSlice.js');
+
 require('dotenv').config();
 
 const logger = getLogger();
+console.log(introMessage);
 
 const mainMenu = async () => {
+
     let choice = await menuPrompt();
+
     switch (choice) {
         case menuOptions.LOAD_OPTION_1:
             // Load transactions to redux store
@@ -23,24 +30,25 @@ const mainMenu = async () => {
 
             // Mark csvLoaded as true to allow for other menu options
             store.dispatch(markCsvLoaded());
-            const res = await prompt({
-                type: 'confirm',
-                name: 'createJSON',
-                message: 'Would you like to create JSON objects for the React app?',
-                initial: true
-            });
-            if (res.createJSON) {
+
+            // Prompt for JSON creation
+            const createJSON = await jsonPrompt();
+            if (createJSON) {
                 await writeJSON(transactionsFromCSV);
             }
             mainMenu();
             break;
         case menuOptions.FILTER_OPTION_2:
-            let transactionsFromStore = store.getState().transactions.filtered
-            let filters = await filterPrompt.run();
-            let filteredTransactions = store.getState().transactions.filtered;
+            let filters = await filterPrompt();
+            store.dispatch(filterTransactions(filters));
+            let filteredTransactions = store.getState().transactions.filtered1;
             let filteredTransactionsTotal = filteredTransactions.reduce((acc, cur) => {
                 return acc + cur.amount;
             }, 0);
+            const exportFiltered = await exportFilteredPrompt();
+            if (exportFiltered) {
+                console.log("Writing..");
+            }
             console.log(`Counted ${filteredTransactions.length} ${filters.category} transactions totalling ${filteredTransactionsTotal} dollars`);
             mainMenu();
             break;
