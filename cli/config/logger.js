@@ -7,7 +7,6 @@ const getLogger = () => {
             format.json()
         ),
         transports: [
-            new transports.Console(),
             new transports.File({ filename: 'logfile.log' })
         ]
     });

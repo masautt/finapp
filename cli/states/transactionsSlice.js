@@ -4,17 +4,17 @@ const { isDateInRange } = require('../utils/dateHelper.js');
 
 const transactionsSlice = createSlice({
   name: 'transactions',
-  initialState: { data: [], filteredData: [] },
+  initialState: { all: [], filtered: [] },
   reducers: {
     addTransaction: (state, action) => {
-      state.data.push(action.payload);
+      state.all.push(action.payload);
     },
     addTransactions: (state, action) => {
-      state.data = state.data.concat(action.payload);
+      state.all = state.all.concat(action.payload);
     },
-    fetchTransactions: (state, action) => {
+    filterTransactions: (state, action) => {
       let filters = action.payload;
-      let filteredTransactions = state.data;
+      let filteredTransactions = state.all;
 
       constants.filterAttributes.forEach(attribute => {
         if (filters[attribute]) {
@@ -27,17 +27,21 @@ const transactionsSlice = createSlice({
         return isDateInRange(date, filters.startDate, filters.endDate);
       });
 
-      state.filteredData = filteredTransactions;
+      state.filtered = filteredTransactions;
     }
   },
 });
 
-const { addTransaction, addTransactions, fetchTransactions } = transactionsSlice.actions;
+const { addTransaction, addTransactions, filterTransactions } = transactionsSlice.actions;
 const transactionsReducer = transactionsSlice.reducer;
+const selectTransactions = state => state.transactions.all;
+const selectFilteredTransactions = state => state.transactions.filtered;
 
 module.exports = {
     addTransaction,
     addTransactions,
-    fetchTransactions,
+    filterTransactions,
+    selectTransactions,
+    selectFilteredTransactions,
     transactionsReducer
 };

@@ -26,6 +26,6 @@ const filterPrompt = new Form({
   ]
 });
 
-module.exports = { filterPrompt };
+module.exports = filterPrompt;
 
 
