@@ -13,6 +13,7 @@
   grid-template-areas: 'titlebar'
     'transactionsTable'
     'categoryFilters'
+    'businessFilters'
     'recipientFilters'
     'necessityFilters'
     'reimburseFilters'
@@ -37,8 +38,14 @@
   grid-area: categoryFilters;
   border: 2px solid black;
   /* Apply border to all content areas */
-
 }
+
+.businessFilters {
+  grid-area: businessFilters;
+  border: 2px solid black;
+  /* Apply border to all content areas */
+}
+
 
 .recipientFilters {
   grid-area: recipientFilters;
@@ -87,9 +94,9 @@
       'transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable'
       'transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable'
       'transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable transactionsTable'
-      'categoryFilters subcategoryFilters recipientFilters reimburseFilters reimburseFilters reimburseFilters reimburseFilters reimburseFilters reimburseFilters reimburseFilters reimburseFilters'
-      'categoryFilters subcategoryFilters necessityFilters reimburseFilters reimburseFilters reimburseFilters reimburseFilters reimburseFilters reimburseFilters reimburseFilters reimburseFilters'
-      'amountFitlers subcategoryFilters necessityFilters reimburseFilters reimburseFilters reimburseFilters reimburseFilters reimburseFilters reimburseFilters reimburseFilters reimburseFilters';
+      'categoryFilters subcategoryFilters recipientFilters businessFilters amountFitlers amountFitlers amountFitlers amountFitlers amountFitlers amountFitlers amountFitlers'
+      'categoryFilters subcategoryFilters reimburseFilters businessFilters amountFitlers amountFitlers amountFitlers amountFitlers amountFitlers amountFitlers amountFitlers'
+      'necessityFilters subcategoryFilters reimburseFilters businessFilters amountFitlers amountFitlers amountFitlers amountFitlers amountFitlers amountFitlers amountFitlers';
   }
 
 }

@@ -4,6 +4,7 @@ import TransactionsTable from "./TransactionsTable";
 import CategoryFilters from "./CategoryFilters";
 import RecipientFilters from "./RecipientFilters";
 import NecessityFilters from "./NecessityFilters";
+import BusinessFilters from "./BusinessFilters";
 import Content6 from "./ReimburseFilters";
 import AmountFilters from "./AmountFilters";
 import SubcategoryFilters from "./SubcategoryFilters";
@@ -28,6 +29,9 @@ const MainPage = () => {
           </div>
           <div className="necessityFilters centered">
             <NecessityFilters />
+          </div>
+          <div className="businessFilters centered">
+            <BusinessFilters />
           </div>
           <div className="reimburseFilters centered">
             <Content6 />

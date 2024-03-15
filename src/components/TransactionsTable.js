@@ -10,18 +10,18 @@ const TransactionsTable = () => {
       <table style={{ width: '100%', borderCollapse: 'collapse' }}>
         <thead>
           <tr>
-            <th style={{ border: '1px solid #ddd' }}>Category</th>
-            <th style={{ border: '1px solid #ddd' }}>Subcategory</th>
-            <th style={{ border: '1px solid #ddd' }}>Amount</th>
-            <th style={{ border: '1px solid #ddd' }}>Business</th>
-            <th style={{ border: '1px solid #ddd' }}>City</th>
-            <th style={{ border: '1px solid #ddd' }}>State</th>
-            <th style={{ border: '1px solid #ddd' }}>Description</th>
-            <th style={{ border: '1px solid #ddd' }}>Comments</th>
-            <th style={{ border: '1px solid #ddd' }}>Recipient</th>
-            <th style={{ border: '1px solid #ddd' }}>Necessity</th>
-            <th style={{ border: '1px solid #ddd' }}>Reimburse</th>
-            <th style={{ border: '1px solid #ddd' }}>Recurring</th>
+            <th style={{ border: '1px solid #ddd', fontSize: '1.2em' }}>Category</th>
+            <th style={{ border: '1px solid #ddd', fontSize: '1.2em' }}>Subcategory</th>
+            <th style={{ border: '1px solid #ddd', fontSize: '1.2em' }}>Amount</th>
+            <th style={{ border: '1px solid #ddd', fontSize: '1.2em' }}>Business</th>
+            <th style={{ border: '1px solid #ddd', fontSize: '1.2em' }}>City</th>
+            <th style={{ border: '1px solid #ddd', fontSize: '1.2em' }}>State</th>
+            <th style={{ border: '1px solid #ddd', fontSize: '1.2em' }}>Description</th>
+            <th style={{ border: '1px solid #ddd', fontSize: '1.2em' }}>Comments</th>
+            <th style={{ border: '1px solid #ddd', fontSize: '1.2em' }}>Recipient</th>
+            <th style={{ border: '1px solid #ddd', fontSize: '1.2em' }}>Necessity</th>
+            <th style={{ border: '1px solid #ddd', fontSize: '1.2em' }}>Reimburse</th>
+            <th style={{ border: '1px solid #ddd', fontSize: '1.2em' }}>Recurring</th>
           </tr>
         </thead>
         <tbody>

@@ -7,10 +7,10 @@ const ReimburseFilters = () => {
 
   return (
     <div style={{ textAlign: 'left' }}>
-      <h2>Reimburses</h2>
+      <h3 style={{ margin: '0' }}>Reimburses</h3>
       {reimburses.map((reimburse, index) => (
         <div key={index} style={{ display: 'flex', alignItems: 'center' }}>
-          <input type="checkbox" id={`reimburse-${index}`} value={reimburse} />
+          <input type="checkbox" id={`reimburse-${index}`} value={reimburse} checked='true' />
           <label htmlFor={`reimburse-${index}`} style={{ marginLeft: '0.5rem' }}>{reimburse}</label>
         </div>
       ))}

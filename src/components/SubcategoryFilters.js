@@ -10,11 +10,11 @@ const SubcategoryFilters = () => {
 
   return (
     <div style={{ textAlign: 'left', height: '100%', overflowY: 'auto', overflowX: 'hidden', scrollbarWidth: 'none', scrollbarColor: 'transparent transparent' }}>
-      <h3 style={{ backgroundColor: 'white', padding: '0.5rem 0', margin: 0, position: 'sticky', top: 0, zIndex: 1 }}>Subcategories</h3>
-      <div style={{ marginTop: '0.5rem', paddingBottom: '1rem' }}>
+      <h3 style={{ backgroundColor: 'white', padding: '0.5rem 0', margin: 0, position: 'sticky', top: 0, zIndex: 1}}>Subcategories</h3>
+      <div style={{paddingBottom: '1rem' }}>
         {sortedSubcategories.map((subcategory, index) => (
           <div key={index} style={{ display: 'flex', alignItems: 'center' }}>
-            <input type="checkbox" id={`subcategory-${index}`} value={subcategory} />
+            <input type="checkbox" id={`subcategory-${index}`} value={subcategory} checked='true' />
             <label htmlFor={`subcategory-${index}`} style={{ marginLeft: '0.5rem' }}>{subcategory}</label>
           </div>
         ))}

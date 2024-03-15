@@ -11,7 +11,7 @@ const NecessityFilters = () => {
       <div style={{ marginTop: '0.5rem' }}>
         {necessities.map((necessity, index) => (
           <div key={index} style={{ display: 'flex', alignItems: 'center' }}>
-            <input type="checkbox" id={`necessity-${index}`} value={necessity} />
+            <input type="checkbox" id={`necessity-${index}`} value={necessity} checked='true' />
             <label htmlFor={`necessity-${index}`} style={{ marginLeft: '0.5rem' }}>{necessity}</label>
           </div>
         ))}

@@ -11,7 +11,7 @@ const CategoryFilters = () => {
       <div style={{ marginTop: '0.5rem' }}>
         {categories.map((category, index) => (
           <div key={index} style={{ display: 'flex', alignItems: 'center' }}>
-            <input type="checkbox" id={`category-${index}`} value={category} />
+            <input type="checkbox" id={`category-${index}`} value={category} checked='true' />
             <label htmlFor={`category-${index}`} style={{ marginLeft: '0.5rem' }}>{category}</label>
           </div>
         ))}
