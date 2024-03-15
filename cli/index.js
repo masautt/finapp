@@ -3,8 +3,7 @@ const getLogger = require('./config/logger.js');
 const readCSV = require('./utils/csvHelper.js');
 const constants = require("./config/constants.js");
 const writeJSON = require('./utils/jsonHelper.js');
-
-
+const { printTransactionsTable, printTransactionStatisticsTable } = require('./utils/tableHelper.js');
 const store = require('./states/store.js');
 const { filterPrompt } = require('./prompts/filterPrompts.js');
 const { addTransactions } = require('./states/transactionsSlice.js');
@@ -16,6 +15,8 @@ const { filterTransactions } = require('./states/transactionsSlice.js');
 require('dotenv').config();
 
 const logger = getLogger();
+
+console.clear();
 console.log(introMessage);
 
 const mainMenu = async () => {
@@ -33,15 +34,21 @@ const mainMenu = async () => {
 
             // Prompt for JSON creation
             const createJSON = await jsonPrompt();
-            if (createJSON) {
-                await writeJSON(transactionsFromCSV);
-            }
+            if (createJSON) await writeJSON(transactionsFromCSV);
+
             mainMenu();
+
             break;
         case menuOptions.FILTER_OPTION_2:
+            // Prompt for filters
             let filters = await filterPrompt();
+
+            // Apply fitlers and fetch from store
             store.dispatch(filterTransactions(filters));
             let filteredTransactions = store.getState().transactions.filtered1;
+
+            printTransactionsTable(filteredTransactions);
+            printTransactionStatisticsTable(filteredTransactions);
             let filteredTransactionsTotal = filteredTransactions.reduce((acc, cur) => {
                 return acc + cur.amount;
             }, 0);
