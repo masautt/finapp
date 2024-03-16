@@ -45,7 +45,7 @@ const mainMenu = async () => {
 
             // Apply fitlers and fetch from store
             store.dispatch(filterTransactions(filters));
-            let filteredTransactions = store.getState().transactions.filtered1;
+            let filteredTransactions = store.getState().transactions.filtered;
 
             printTransactionsTable(filteredTransactions);
             printTransactionStatisticsTable(filteredTransactions);

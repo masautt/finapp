@@ -4,7 +4,7 @@ const { isDateInRange } = require('../utils/dateHelper.js');
 
 const transactionsSlice = createSlice({
   name: 'transactions',
-  initialState: { all: [], filtered1: [], filtered2: [], filtered3: [] },
+  initialState: { all: [], filtered: [] },
   reducers: {
     addTransaction: (state, action) => {
       state.all.push(action.payload);
@@ -27,7 +27,7 @@ const transactionsSlice = createSlice({
         return isDateInRange(date, filters.startDate, filters.endDate);
       });
 
-      state.filtered1 = filteredTransactions;
+      state.filtered = filteredTransactions;
     }
   },
 });
