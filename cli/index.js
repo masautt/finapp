@@ -11,6 +11,7 @@ const { markCsvLoaded } = require('./states/diagnosticsSlice.js');
 const { jsonPrompt } = require('./prompts/jsonPrompt.js');
 const { exportFilteredPrompt } = require('./prompts/exportPrompt.js');
 const { filterTransactions } = require('./states/transactionsSlice.js');
+const inquirePrompt = require('./prompts/inquirePrompt.js');
 
 require('dotenv').config();
 
@@ -63,6 +64,7 @@ const mainMenu = async () => {
             mainMenu();
             break;
         case menuOptions.INQUIRE_OPTION_4:
+            await inquirePrompt();
             mainMenu();
             break;
         case menuOptions.EXIT_OPTION_5:
