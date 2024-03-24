@@ -28,6 +28,6 @@ const filterPrompt = async () => {
   return res.filterPrompt;
 }
 
-module.exports = { filterPrompt };
+module.exports = filterPrompt;
 
 

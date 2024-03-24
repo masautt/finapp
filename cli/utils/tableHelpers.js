@@ -1,7 +1,7 @@
 const Table = require('table');
 const chalk = require('chalk');
 
-function printTransactionsTable(data) {
+const printTransactionsTable = (data) => {
     const tableData = data.map(transaction => {
         return [
             transaction.category,
@@ -39,10 +39,10 @@ function printTransactionsTable(data) {
     console.log(table);
 }
 
-function printTransactionStatisticsTable(data) {
+const printTransactionsSummaryTable = (data) => {
     const numTransactions = data.length;
 
-    // Calculate total transaction amount
+    // Calculate total transaction amounts
     const totalAmount = data.reduce((total, transaction) => total + transaction.amount, 0);
 
     // Find first and last transaction dates
@@ -156,4 +156,4 @@ function printTransactionStatisticsTable(data) {
 }
 
 
-module.exports = { printTransactionsTable, printTransactionStatisticsTable };
+module.exports = { printTransactionsTable, printTransactionsSummaryTable };

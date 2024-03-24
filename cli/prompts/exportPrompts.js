@@ -10,4 +10,4 @@ const exportFilteredPrompt = async () => {
     return res.createJSON;
 };
 
-module.exports = { exportFilteredPrompt };
+module.exports = exportFilteredPrompt;

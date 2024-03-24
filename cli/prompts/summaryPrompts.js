@@ -1,7 +1,7 @@
 const enquirer = require('enquirer');
 const questions = require('../questions');
 
-const inquirePrompt = async () => {
+const summaryPrompt = async () => {
 
     const { question } = await enquirer.prompt({
         type: 'select',
@@ -13,4 +13,4 @@ const inquirePrompt = async () => {
     questions.find(q => q.question == question).answer();
 };
 
-module.exports = inquirePrompt;
+module.exports = summaryPrompt;

@@ -10,4 +10,4 @@ const jsonPrompt = async () => {
     return res.createJSON;
 };
 
-module.exports = { jsonPrompt };
+module.exports = jsonPrompt;

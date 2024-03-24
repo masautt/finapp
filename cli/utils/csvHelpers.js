@@ -2,7 +2,7 @@ const fs = require('fs');
 const csv = require('csv-parser');
 const path = require('path');
 
-const parseValue = (key, value) => {
+const parseTransactionValue = (key, value) => {
   if (!isNaN(value) && value !== '' && !value.match(/[^0-9.]/)) {
     return parseFloat(value); // Parse as a float (you can use parseInt for integers)
   }
@@ -14,16 +14,16 @@ const parseValue = (key, value) => {
   return value;
 };
 
-const parseCSV = async (type, logger) => {
-  const fileName = process.env[`${type}_FILE`];
-  const fileFolder = process.env[`${type}_FOLDER`];
+const parseCsvTransactions = async () => {
+  const fileName = process.env[`TRANSACTIONS_FILE`];
+  const fileFolder = process.env[`TRANSACTIONS_FOLDER`];
   const filePath = path.join(fileFolder, fileName);
 
   return new Promise((resolve, reject) => {
     // Check if the file exists before attempting to read
     fs.access(filePath, fs.constants.F_OK, (err) => {
       if (err) {
-        logger.error(`Error: CSV file not found at ${filePath}`);
+        //logger.error(`Error: CSV file not found at ${filePath}`);
         reject(err);
         return;
       }
@@ -37,17 +37,17 @@ const parseCSV = async (type, logger) => {
           Object.keys(data).forEach((key) => {
             const lowerCaseKey = key.toLowerCase();
             const newKey = lowerCaseKey === 'ex' ? 'exclusion' : lowerCaseKey;
-            transformedData[newKey] = parseValue(newKey, data[key]);
+            transformedData[newKey] = parseTransactionValue(newKey, data[key]);
           });
           
           results.push(transformedData);
         })
         .on('end', () => {
-          logger.info(`Read ${results.length} records from ${fileName}`);
+          //logger.info(`Read ${results.length} records from ${fileName}`);
           resolve(results);
         })
         .on('error', (error) => {
-          logger.error(`Error reading CSV file from: ${fileName}`, error);
+          //logger.error(`Error reading CSV file from: ${fileName}`, error);
           reject(error);
         });
     });
@@ -69,8 +69,10 @@ const filterEmptyTransactions = (transactions) => {
   });
 };
 
-module.exports = async (type, logger) => {
-  const allTransactions = await parseCSV(type, logger);
-  const filteredTransactions = filterEmptyTransactions(allTransactions);
-  return filteredTransactions;
-};
+const fetchCsvTransactions =  async () => {
+  const allTransactions = await parseCsvTransactions();
+  const nonEmptyTransactions = filterEmptyTransactions(allTransactions);
+  return nonEmptyTransactions;
+}
+
+module.exports = { fetchCsvTransactions };

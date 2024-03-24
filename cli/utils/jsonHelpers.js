@@ -2,7 +2,7 @@ const fs = require('fs');
 const util = require('util');
 const writeFileAsync = util.promisify(fs.writeFile);
 
-module.exports = async (transactions) => {
+const createJsFiles =  async (transactions) => {
     const dataDirectory = './src/data';
     const moduleExports = 'module.exports = ';
     const jsDocComments = `
@@ -74,3 +74,5 @@ module.exports = async (transactions) => {
   const necessitiesString = `${moduleExports}${JSON.stringify(uniqueNecessities, null, 2)};`;
   await writeFileAsync(`${dataDirectory}/necessityOptions.js`, necessitiesString);
 }
+
+module.exports = { createJsFiles };
