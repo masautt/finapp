@@ -1,6 +1,6 @@
 const { createSlice } = require('@reduxjs/toolkit');
 const constants = require("../config/constants.js");
-const { isDateInRange } = require('../utils/dateHelper.js');
+const { isDateInRange } = require('../helpers/allHelpers.js');
 
 const transactionsSlice = createSlice({
   name: 'transactions',

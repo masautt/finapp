@@ -1,8 +1,8 @@
 
-
+const { handleLoadPath } = require('./paths/allPaths.js');
 const { menuOptions, introMessage } = require("./config/constants.js");
 const { summaryPrompt, filterPrompt, menuPrompt } = require('./prompts/allPrompts.js');
-const { fetchCsvTransactions } = require('./utils/allHelpers.js');
+const { fetchCsvTransactions } = require('./helpers/allHelpers.js');
 const { addTransactions, filterTransactions } = require('./states/transactionsSlice.js');
 const { markCsvLoaded } = require('./states/diagnosticsSlice.js');
 const store = require('./states/store.js');
@@ -18,10 +18,7 @@ const mainMenu = async () => {
 
     switch (choice) {
         case menuOptions.LOAD_OPTION:
-            let transactionsFromCSV = await fetchCsvTransactions();
-            store.dispatch(addTransactions(transactionsFromCSV));
-
-            store.dispatch(markCsvLoaded());
+            await handleLoadPath();
 
             console.clear();
             mainMenu();
