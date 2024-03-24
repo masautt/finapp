@@ -1,0 +1,21 @@
+{
+    "name": "finapp-cli",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+      "@reduxjs/toolkit": "^2.2.1",
+      "@statikly/funk": "^0.3.1",
+      "chalk": "^4.1.2",
+      "csv-parser": "^3.0.0",
+      "dotenv": "^16.4.1",
+      "enquirer": "^2.4.1",
+      "jest": "^27.5.1",
+      "table": "^6.8.1",
+      "web-vitals": "^2.1.4",
+      "winston": "^3.11.0"
+    },
+    "scripts": {
+      "start": "node ./index.js"
+    }
+  }
+  

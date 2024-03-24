@@ -1,5 +1,5 @@
 {
-  "name": "finapp",
+  "name": "finapp-frontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -10,10 +10,6 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "chalk": "^4.1.2",
-    "csv-parser": "^3.0.0",
-    "dotenv": "^16.4.1",
-    "enquirer": "^2.4.1",
     "jest": "^27.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -23,12 +19,9 @@
     "react-router-hash-link": "^2.4.3",
     "react-scripts": "5.0.1",
     "react-scroll": "^1.8.4",
-    "table": "^6.8.1",
-    "web-vitals": "^2.1.4",
-    "winston": "^3.11.0"
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start-cli": "node ./cli/index.js",
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
