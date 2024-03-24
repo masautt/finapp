@@ -19,15 +19,15 @@ const constants = {
     'recurring'
     ],
     menuOptions : {
-        LOAD_OPTION: '1: Load Transactions',
-        FILTER_OPTION: '2: Filter Transactions',
-        EXPORT_OPTION: '3: Export Transactions',
-        SUMMARY_OPTION: '4: Inquire Transactions',
-        EXIT_OPTION: '5: Exit'
+        LOAD_OPTION: 'Load Transactions',
+        FILTER_OPTION: 'Filter Transactions',
+        EXPORT_OPTION: 'Export Transactions',
+        SUMMARY_OPTION: 'Inquire Transactions',
+        EXIT_OPTION: 'Exit'
     },
     introMessage:
     `
-        ${chalk.green('Welcome to Budget Buddy v1.23!')} 
+        ${chalk.green('Welcome to Budget Buddy v1.25!')} 
         ${chalk.blueBright('How man I assist you today?')}
     `
 }

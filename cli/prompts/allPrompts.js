@@ -1,13 +1,13 @@
 const exportPrompt = require('./exportPrompts');
 const filterPrompt = require('./filterPrompts');
-const summaryPrompt = require('./summaryPrompts');
+const summarizePrompt = require('./summarizePrompt');
 const jsonPrompt = require('./jsonPrompts');
 const menuPrompt = require('./menuPrompts');
 
 const allPrompts = {
     exportPrompt,
     filterPrompt,
-    summaryPrompt,
+    summarizePrompt,
     jsonPrompt,
     menuPrompt
 };

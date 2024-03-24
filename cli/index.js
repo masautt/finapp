@@ -1,41 +1,29 @@
 
-const { handleLoadPath } = require('./paths/allPaths.js');
+const { handleLoadPath, handleFilterPath, handleSummarizePath } = require('./paths/allPaths.js');
 const { menuOptions, introMessage } = require("./config/constants.js");
-const { summaryPrompt, filterPrompt, menuPrompt } = require('./prompts/allPrompts.js');
-const { fetchCsvTransactions } = require('./helpers/allHelpers.js');
-const { addTransactions, filterTransactions } = require('./states/transactionsSlice.js');
-const { markCsvLoaded } = require('./states/diagnosticsSlice.js');
-const store = require('./states/store.js');
+const { menuPrompt } = require('./prompts/allPrompts.js');
 
 require('dotenv').config();
 
-console.clear();
-console.log(introMessage);
-
 const mainMenu = async () => {
-
+    console.clear();
+    console.log(introMessage);
     let choice = await menuPrompt();
 
     switch (choice) {
         case menuOptions.LOAD_OPTION:
             await handleLoadPath();
-
-            console.clear();
             mainMenu();
-
             break;
         case menuOptions.FILTER_OPTION:
-            let filters = await filterPrompt();
-
-            store.dispatch(filterTransactions(filters));
-
+            await handleFilterPath();
             mainMenu();
             break;
         case menuOptions.EXPORT_OPTION:
             mainMenu();
             break;
         case menuOptions.SUMMARY_OPTION:
-            await summaryPrompt();
+            await handleSummarizePath();
             mainMenu();
             break;
         case menuOptions.EXIT_OPTION:
@@ -46,4 +34,5 @@ const mainMenu = async () => {
             mainMenu();
     }
 };
+
 mainMenu();
